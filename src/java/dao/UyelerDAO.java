@@ -4,12 +4,8 @@
  */
 package dao;
 
-/**
- *
- * @author tr
- */
-import dao.MagazaDAO;
-import dao.UrunlerDAO;
+
+
 import entity.Magaza;
 import entity.Urunler;
 import entity.Uyeler;
@@ -24,22 +20,7 @@ public class UyelerDAO extends DBConnection {
     private MagazaDAO magazaDao;
     private UrunlerDAO urunlerDao;
 
-    public Uyeler findByID(int id) {
-        Uyeler u = null;
-
-        try {
-            Statement st = this.getConnection().createStatement();
-            String query = "select * from uyeler where id=" + id;
-            ResultSet rs = st.executeQuery(query);
-            while (rs.next()) {
-                u = new Uyeler(rs.getInt("id"), rs.getString("adSoyad"));
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-
-        }
-        return u;
-    }
+ 
 
     public void create(Uyeler c) {
         try {

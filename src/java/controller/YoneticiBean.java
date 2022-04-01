@@ -62,7 +62,7 @@ public class YoneticiBean implements Serializable {
     }
 
     public YoneticiDAO getDao() {
-        if (this.dao == null) {
+       if (this.dao == null) {
             this.dao = new YoneticiDAO();
         }
         return dao;

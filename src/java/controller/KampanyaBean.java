@@ -4,78 +4,72 @@
  */
 package controller;
 
-import dao.StokDAO;
-import entity.Stok;
+import dao.KampanyaDAO;
+import entity.Kampanya;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 
 
-@Named(value = "stokBean")
+@Named(value = "kampanyaBean")
 @SessionScoped
-public class StokBean implements Serializable {
+public class KampanyaBean implements Serializable {
 
-    private Stok entity;
-    private StokDAO dao;
-    private List<Stok> list;
+    private Kampanya entity;
+    private KampanyaDAO dao;
+    private List<Kampanya> list;
 
-    public StokBean() {
+    public KampanyaBean() {
     }
-
-    public int getTitle(int id) {
-        Stok s = this.getDao().findByID(id);
-        return s.getAdet();
-    }
-
 
     public void create() {
         this.getDao().create(entity);
-        entity = new Stok();
+        entity = new Kampanya();
     }
 
     public void update() {
         this.getDao().update(entity);
-        entity = new Stok();
+        entity = new Kampanya();
     }
 
-    public void delete(Stok c) {
+    public void delete(Kampanya c) {
         this.getDao().delete(c);
-        entity = new Stok();
+        entity = new Kampanya();
     }
 
     public void clear() {
-        entity = new Stok();
+        entity = new Kampanya();
     }
 
-    public Stok getEntity() {
+    public Kampanya getEntity() {
         if (this.entity == null) {
-            this.entity = new Stok();
+            this.entity = new Kampanya();
         }
         return entity;
     }
 
-    public void setEntity(Stok entity) {
+    public void setEntity(Kampanya entity) {
         this.entity = entity;
     }
 
-    public StokDAO getDao() {
+    public KampanyaDAO getDao() {
         if (this.dao == null) {
-            this.dao = new StokDAO();
+            this.dao = new KampanyaDAO();
         }
         return dao;
     }
 
-    public void setDao(StokDAO dao) {
+    public void setDao(KampanyaDAO dao) {
         this.dao = dao;
     }
 
-    public List<Stok> getList() {
+    public List<Kampanya> getList() {
         this.list = this.getDao().getList();
         return list;
     }
 
-    public void setList(List<Stok> list) {
+    public void setList(List<Kampanya> list) {
         this.list = list;
     }
 }

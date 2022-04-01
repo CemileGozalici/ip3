@@ -4,8 +4,6 @@
  */
 package controller;
 
-
-
 import dao.UyelerDAO;
 import entity.Uyeler;
 import jakarta.inject.Named;
@@ -22,10 +20,6 @@ public class UyelerBean implements Serializable {
     private List<Uyeler> list;
 
     public UyelerBean() {
-    }
- public String getTitle(int id) {
-        Uyeler c = this.getDao().findByID(id);
-        return c.getAdSoyad();
     }
 
     public void create() {

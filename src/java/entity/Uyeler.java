@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 import java.util.List;
 
-/**
- *
- * @author tr
- */
 public class Uyeler {
 
     private int id;
@@ -47,9 +39,6 @@ public class Uyeler {
         this.urun = urun;
     }
 
-   
-
-   
     public List<Urunler> getUrun() {
         return urun;
     }
@@ -104,28 +93,6 @@ public class Uyeler {
 
     public void setTelefon(String telefon) {
         this.telefon = telefon;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + this.id;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Uyeler other = (Uyeler) obj;
-        return this.id == other.id;
     }
 
 }
