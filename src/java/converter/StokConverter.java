@@ -15,10 +15,7 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.convert.Converter;
 import jakarta.faces.convert.FacesConverter;
 
-/**
- *
- * @author tr
- */
+
 @FacesConverter("stokConverter")
 public class StokConverter implements Converter {
 

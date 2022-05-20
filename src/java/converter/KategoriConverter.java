@@ -4,10 +4,7 @@
  */
 package converter;
 
-/**
- *
- * @author tr
- */
+
 import dao.KategoriDAO;
 import entity.Kategori;
 import jakarta.faces.component.UIComponent;
@@ -15,10 +12,7 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.convert.Converter;
 import jakarta.faces.convert.FacesConverter;
 
-/**
- *
- * @author tr
- */
+
 @FacesConverter("kategoriConverter")
 public class KategoriConverter implements Converter {
 
