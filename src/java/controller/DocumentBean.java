@@ -20,9 +20,25 @@ public class DocumentBean implements Serializable {
     private DocumentDAO documentDao;
 
     private Part doc;
-    private final String uploadTo = "/Users/user/Desktop/upload/";
+    private final String uploadTo = "/Users/user/upload/";
 
-    
+    public void upload() {
+        try {
+            InputStream input = doc.getInputStream();
+            File f = new File(uploadTo + doc.getSubmittedFileName());
+            
+            Files.copy(input, f.toPath());
+
+            document = this.getDocument();
+            document.setFilePath(f.getParent());
+            document.setFileName(f.getName());
+            document.setFileType(doc.getContentType());
+
+            this.getDocumentDao().insert(document);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public Part getDoc() {
         return doc;
@@ -30,16 +46,6 @@ public class DocumentBean implements Serializable {
 
     public void setDoc(Part doc) {
         this.doc = doc;
-    }
-
-    public void upload() {
-        try {
-            InputStream input = doc.getInputStream();
-            File f = new File(uploadTo + doc.getSubmittedFileName());
-            Files.copy(input, f.toPath());
-        } catch (Exception e) {
-
-        }
     }
 
     public String getUploadTo() {
