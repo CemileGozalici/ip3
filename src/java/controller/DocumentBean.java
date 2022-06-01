@@ -4,6 +4,7 @@ import dao.DocumentDAO;
 import entity.Document;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.persistence.criteria.Path;
 import jakarta.servlet.http.Part;
 import java.io.File;
 import java.io.InputStream;
@@ -20,13 +21,17 @@ public class DocumentBean implements Serializable {
     private DocumentDAO documentDao;
 
     private Part doc;
-    private final String uploadTo = "/Users/user/upload/";
+    private final String uploadTo = "/Users/user/Desktop/resim/kopindir.jpg";
+
+   
 
     public void upload() {
         try {
+            //System.out.println(doc);
+            // FileInputStream fis = new FileInputStream("/Users/user/Desktop/resim/indir.jpg/");
             InputStream input = doc.getInputStream();
             File f = new File(uploadTo + doc.getSubmittedFileName());
-            
+
             Files.copy(input, f.toPath());
 
             document = this.getDocument();
@@ -45,6 +50,7 @@ public class DocumentBean implements Serializable {
     }
 
     public void setDoc(Part doc) {
+
         this.doc = doc;
     }
 

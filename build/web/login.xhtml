@@ -13,8 +13,8 @@
         
           <h:form rendered="#{validUser==null}" id="form">
             Username:
-            <h:inputText id="uname" value="#{lc.user.username}" required="true" requiredMessage="Bu alan boş bırakılamaz!" >
-                <f:validateLength minimum="3" maximum="6"/>
+            <h:inputText id="uname" value="#{lc.user.username}" required="true" requiredMessage="kulanıcı adı boş bırakılamaz!" >
+                <f:validateLength minimum="3" maximum="8"/>
             </h:inputText><br/>
             <h:message for="uname" style="color:red; font-size:10pt;"/><br/>
             Password:<h:inputText id="pass" validator="#{testBean.validatePassword}" value="#{lc.user.password}"/><br/>
